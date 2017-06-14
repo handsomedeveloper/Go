@@ -63,28 +63,8 @@ func stringType() {
 
 //Explain Go language floating-point type
 func floatPointType() {
-	var two int = 10  //1010
-	var three int = 6 //110
-	var result int = two ^ three
-	var s = [10]byte{10, 4, 6, 8}
-	var test int
-
-	fmt.Println(test)
-
-	fmt.Println(s[0])
-	s[0] <<= 2
-	fmt.Println(s[0])
-	fmt.Println(s)
-	fmt.Println(result)
-	fmt.Println(5 ^ 2)
-	fmt.Println("U+000A")
-
-	fmt.Println(float32(2.718281828))
-
-}
-
-func beautifulSeparationLine(comment string) {
-	fmt.Println("-------------------------------", comment, "------------------------------------")
+	fmt.Println("float32: 7")
+	fmt.Println("float64: 15")
 }
 
 func forCycle(arg []int) {
@@ -97,6 +77,20 @@ func forCycle(arg []int) {
 func intType(x, y int) (addition int, reduce int) {
 	addition = x + y
 	reduce = x - y
+
+	var two int = 10  //1010
+	var three int = 6 //110
+	var result int = two ^ three
+	var s = [10]byte{10, 4, 6, 8}
+	fmt.Println(s[0])
+	s[0] <<= 2
+	fmt.Println(s[0])
+	fmt.Println(s)
+	fmt.Println(result)
+	fmt.Println(5 ^ 2)
+	fmt.Println(5 & 2)
+	fmt.Println(5 & 2)
+	fmt.Println(5 | 2)
 	return
 }
 
@@ -208,4 +202,8 @@ func goRoutine() {
 	say("hello") //当前Goroutines执行
 	gt := runtime.NumGoroutine()
 	fmt.Println(gt)
+}
+
+func beautifulSeparationLine(comment string) {
+	fmt.Println("-------------------------------", comment, "------------------------------------")
 }
