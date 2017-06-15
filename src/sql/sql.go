@@ -51,6 +51,7 @@ func main() {
 	//delete data
 	statementDelete, err := db.Prepare("DELETE FROM user_info WHERE uid = ?")
 	checkErr(err)
+	defer statementDelete.Close()
 	resultDelete, err := statementDelete.Exec(id)
 	checkErr(err)
 	affectDelete, err := resultDelete.RowsAffected()

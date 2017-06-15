@@ -185,23 +185,29 @@ func chanType() {
 
 }
 
-func testGo() {
+func testGo(ch chan int) {
 	fmt.Println("This is test.")
+	ch <- 1
 }
 
-func say(s string) {
+func say(s string, ch chan int) {
 	for i := 0; i < 5; i++ {
-		runtime.Gosched()
+		//runtime.Gosched()
 		fmt.Println(s)
 	}
+	ch <- 2
 }
 
 func goRoutine() {
-	go say("world") //开一个新的Goroutines执行
-	go testGo()
-	say("hello") //当前Goroutines执行
+	ch := make(chan int)
+	go say("world", ch)
+	go say("Hi", ch)
+	go testGo(ch)
+	//say("hello", ch)
 	gt := runtime.NumGoroutine()
 	fmt.Println(gt)
+	ch1, ch2, ch3 := <-ch, <-ch, <-ch
+	fmt.Println(ch1, ch2, ch3)
 }
 
 func beautifulSeparationLine(comment string) {
